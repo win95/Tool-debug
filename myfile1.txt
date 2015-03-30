@@ -1,0 +1,32 @@
+#include <time.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+
+#define file1 		"bat_iv_ogm.c" 
+int main()
+{  
+   char ch, file_name[25];
+   char str[1024];
+   FILE *fp;
+    int i=0;
+   printf("Enter the name of file you wish to see\n");
+   
+ 
+   fp = fopen(file1,"r"); // read mode
+ 
+   if( fp == NULL )
+   {
+      perror("Error while opening the file.\n");
+   }
+ 
+   printf("The contents of %s file are :\n", file1);
+ 
+   while(fgets (str, 60, fp)!=NULL ){
+      printf("%s",str);
+      printf("%d\n",i);
+      i++;
+   }
+   fclose(fp);
+   return 0;
+}
